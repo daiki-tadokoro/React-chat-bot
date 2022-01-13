@@ -75,6 +75,15 @@ export default function SignIn({ setName }) {
             autoFocus
             // inputフォームの中身を取得
             onChange={(e) => setString(e.target.value)}
+            // キーボードが押されたタイミングで発火
+            // enterキーでsetNameの保存
+            onKeyDown={(e) => {
+              console.log({ key: e.key });
+              if (e.key === "Enter") {
+                setName(e.target.value);
+                e.preventDefault();
+              }
+            }}
           />
           <Button
             type="button"
