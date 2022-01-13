@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 
 import SignIn from "./SignIn";
 
 export default () => {
-  return <SignIn />;
+  // ニックネームをグローバルで管理
+  const [name, setName] = useState("");
+  console.log("name", name);
+  return <SignIn setName={setName} />;
 };
