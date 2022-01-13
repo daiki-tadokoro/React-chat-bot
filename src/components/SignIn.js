@@ -49,7 +49,6 @@ export default function SignIn({ setName }) {
   // ログイン時のボタンのdisabled追加
   const [disabled, setDisabled] = useState(true);
   const [string, setString] = useState("");
-  console.log("string", string, "disabled", disabled);
 
   // inputフォームの入力のたびにdisabledを判断
   useEffect(() => {
@@ -78,12 +77,15 @@ export default function SignIn({ setName }) {
             onChange={(e) => setString(e.target.value)}
           />
           <Button
-            type="submit"
+            type="button"
             fullWidth
             variant="contained"
             color="primary"
             className={classes.submit}
             disabled={disabled}
+            onClick={() => {
+              setName(string);
+            }}
           >
             はじめる
           </Button>
